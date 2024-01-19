@@ -10,20 +10,11 @@ async function getRecipes(): Promise<Recipe[]> {
 }
 
 export default async function Home() {
-  const recipes = (await getRecipes());
-
-  if (!recipes || recipes.length === 0) {
-    return (
-      <main className={styles.main}>
-        <h1>No recipes found</h1>
-      </main>
-    );
-  }
+  const recipes = await getRecipes();
 
   return (
     <main className={styles.main}>
-      {recipes &&
-        recipes.length > 0 &&
+      {recipes.length > 0 &&
         recipes.map((recipe) => (
           <div key={`Recipe - ${recipe.name}`}>
             <h2>{recipe.name}</h2>
