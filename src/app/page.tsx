@@ -1,23 +1,32 @@
+import Link from "next/link";
 import styles from "./page.module.css";
-import { Recipe } from "@/types";
+import { TRecipe } from "@/types";
 
-async function getRecipes(): Promise<Recipe[]> {
-  const endpoint = process.env.SERVER_ENDPOINT as string;
+async function getRecipes(): Promise<TRecipe[]> {
+  const endpoint = process.env.GET_ALL_RECIPES_ENDPOINT as string;
   const res = await fetch(endpoint);
   const recipes = await res.json();
 
-  return recipes as Recipe[];
+  return recipes as TRecipe[];
 }
 
 export default async function Home() {
   const recipes = await getRecipes();
 
+  // TODO: use recipe component
   return (
     <main className={styles.main}>
       {recipes.length > 0 &&
         recipes.map((recipe) => (
           <div key={`Recipe - ${recipe.name}`}>
-            <h2>{recipe.name}</h2>
+            <Link
+              href={{
+                pathname: `/recipe/${recipe.id}`,
+              }}
+            >
+              <h2>{recipe.name}</h2>
+            </Link>
+            <h3>Recipe id: {recipe.id}</h3>
             <h4>{recipe.description}</h4>
             <h4>Ingredients</h4>
             <ol>
