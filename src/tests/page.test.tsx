@@ -1,4 +1,4 @@
-import Page from "../app/page";
+import Page from "@/app/page";
 import { render, screen, waitFor } from "@testing-library/react";
 
 describe("Page", () => {
