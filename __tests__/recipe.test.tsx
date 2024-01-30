@@ -1,6 +1,13 @@
+"use strict";
+
 import { TError, TRecipe } from "@/types";
 import RecipeComponent from "@/app/components/recipe";
 import { render, screen } from "@testing-library/react";
+
+jest.mock("@stylexjs/stylex", () => ({
+  props: () => {},
+  create: () => ({}),
+}));
 
 describe("RecipeComponent", () => {
   it("renders as expected", () => {

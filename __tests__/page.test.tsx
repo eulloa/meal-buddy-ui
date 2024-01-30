@@ -1,6 +1,11 @@
 import Page from "@/app/page";
 import { render, screen, waitFor } from "@testing-library/react";
 
+jest.mock("@stylexjs/stylex", () => ({
+  props: () => {},
+  create: () => ({}),
+}));
+
 describe("Page", () => {
   it("renders a list of recipes when recipes are fetched", async () => {
     const recipes = [

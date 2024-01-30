@@ -1,5 +1,6 @@
 import Link from "next/link";
-import styles from "./page.module.css";
+import * as stylex from "@stylexjs/stylex";
+import { PageStyles } from "../app/styles";
 import { TRecipe } from "@/types";
 
 async function getRecipes(): Promise<TRecipe[]> {
@@ -15,7 +16,7 @@ export default async function Home() {
 
   // TODO: use recipe component
   return (
-    <main className={styles.main}>
+    <main {...stylex.props(PageStyles.main)}>
       {recipes.length > 0 &&
         recipes.map((recipe) => (
           <div key={`Recipe - ${recipe.name}`}>
