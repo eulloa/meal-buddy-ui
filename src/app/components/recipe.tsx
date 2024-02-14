@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { TRecipe } from "@/types";
 import { Error } from "@/app/components";
 
@@ -8,7 +9,9 @@ export const RecipeComponent = (recipe: TRecipe) => {
 
   return (
     <div key={`Recipe - ${recipe.name}`}>
-      <h2>{recipe.name}</h2>
+      <Link href={{ pathname: `/recipe/${recipe.id}` }}>
+        <h2>{recipe.name}</h2>
+      </Link>
       <h3>Recipe id: {recipe.id}</h3>
       <h4>{recipe.description}</h4>
       <h4>Ingredients</h4>
@@ -28,4 +31,4 @@ export const RecipeComponent = (recipe: TRecipe) => {
       </a>
     </div>
   );
-}
+};
