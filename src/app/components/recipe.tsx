@@ -1,7 +1,7 @@
 import { TRecipe } from "@/types";
 import { Error } from "@/app/components";
 
-export default function RecipeComponent(recipe: TRecipe) {
+export const RecipeComponent = (recipe: TRecipe) => {
   if (recipe?.error) {
     return <Error error={recipe.error} />;
   }
