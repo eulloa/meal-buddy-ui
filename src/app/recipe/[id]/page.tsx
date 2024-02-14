@@ -1,5 +1,5 @@
 import { RecipeParams, TRecipe } from "@/types";
-import RecipeComponent from "@/app/components/recipe";
+import { RecipeComponent } from "@/app/components/recipe";
 
 async function getRecipe(id: number): Promise<TRecipe> {
   const endpoint = `${process.env.GET_RECIPE_ENDPOINT}/${id}` as string;
@@ -17,5 +17,5 @@ export default async function Recipe({ params }: RecipeParams) {
     <main className="flex min-h-screen flex-col justify-between px-4 md:px-48">
       <RecipeComponent {...recipe} />
     </main>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 import { TRecipe } from "@/types";
-import RecipeComponent from "@/app/components/recipe";
+import { RecipeComponent } from "@/app/components/recipe";
 import { render, screen } from "@testing-library/react";
 
 describe("RecipeComponent", () => {
