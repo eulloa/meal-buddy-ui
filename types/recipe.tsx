@@ -1,8 +1,6 @@
-import { TError } from "@/types";
-
 export type TRecipe = {
   description: string;
-  error?: TError;
+  error?: string;
   id: number;
   ingredients: string[];
   instructions: string[];

@@ -13,5 +13,9 @@ export default async function Recipe({ params }: RecipeParams) {
   const { id } = params;
   const recipe = await getRecipe(id);
 
-  return <RecipeComponent {...recipe} />;
+  return (
+    <main className="flex min-h-screen flex-col justify-between px-4 md:px-48">
+      <RecipeComponent {...recipe} />
+    </main>
+  )
 }
