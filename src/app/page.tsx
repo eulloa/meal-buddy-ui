@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./page.module.css";
 import { TRecipe } from "@/types";
 
 async function getRecipes(): Promise<TRecipe[]> {
@@ -15,7 +14,7 @@ export default async function Home() {
 
   // TODO: use recipe component
   return (
-    <main className={styles.main}>
+    <main className="flex min-h-screen flex-col justify-between px-4 md:px-48">
       {recipes.length > 0 &&
         recipes.map((recipe) => (
           <div key={`Recipe - ${recipe.name}`}>

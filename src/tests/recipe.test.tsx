@@ -1,4 +1,4 @@
-import { TError, TRecipe } from "@/types";
+import { TRecipe } from "@/types";
 import RecipeComponent from "@/app/components/recipe";
 import { render, screen } from "@testing-library/react";
 
@@ -19,17 +19,13 @@ describe("RecipeComponent", () => {
   });
 
   it("renders an error when error is passed", () => {
-    const error: TError = {
-      error: "Sample error",
-    };
-
     // TODO: recipe properties may need to be optional
     const recipe: TRecipe = {
-      error,
+      error: "oops",
     };
 
     render(<RecipeComponent {...recipe} />);
     // TODO: recipe properties may need to be optional
-    expect(screen.findByText(recipe?.error)).toBeTruthy();
+    expect(screen.getByText(recipe?.error as string)).toBeInTheDocument();
   });
 });
