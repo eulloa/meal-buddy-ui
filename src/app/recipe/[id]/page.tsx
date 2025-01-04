@@ -10,7 +10,7 @@ async function getRecipe(id: number): Promise<TRecipe> {
 }
 
 export default async function Recipe({ params }: RecipeParams) {
-  const { id } = params;
+  const { id } = await params;
   const recipe = await getRecipe(id);
 
   return (
