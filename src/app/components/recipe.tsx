@@ -28,4 +28,4 @@ export const RecipeComponent = (recipe: TRecipe) => {
       </a>
     </div>
   );
-}
+};
